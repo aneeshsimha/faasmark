@@ -66,13 +66,13 @@ const deleteProject = exports.deleteProject = function deleteProject(projectName
 
 const setupProject = exports.setupProject = function setupProject(projectName, serviceName) {
   term.log('Enabling cloud functions api');
-  if (exec(`gcloud --project=${projectName} service-management enable cloudfunctions.googleapis.com`) === null) {
+  if (exec(`gcloud --project=${projectName} service enable cloudfunctions.googleapis.com`) === null) {
     term.err('Error enabling cloud functions api');
     return;
   }
 
   term.log('Enabling billing api');
-  if (exec(`gcloud --project=${projectName} service-management enable cloudbilling.googleapis.com`) === null) {
+  if (exec(`gcloud --project=${projectName} service enable cloudbilling.googleapis.com`) === null) {
     term.err('Error enabling billing api');
     return;
   }
